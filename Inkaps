@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Inkapsuliaciya
+{
+    class Triangle
+    {
+        private class Point
+        {
+            public double x;
+            public double y;
+        }
+
+        private Point a;
+        private Point b;
+        private Point c;
+
+        private double Storona(Point a1, Point b1)
+        {
+            return Math.Sqrt(((a1.x - b1.x) * (a1.x - b1.x)) + ((a1.y - b1.y) * (a1.y - b1.y)));
+        }
+
+        public double Perimetr(Triangle ABC)
+        {
+            return Storona(ABC.a, ABC.b) + Storona(ABC.b, ABC.c) + Storona(ABC.c, ABC.a);
+        }
+
+        public double Ploshad(Triangle ABC)
+        {
+            double p = Perimetr(ABC) / 2;
+            return Math.Sqrt(p * (p - Storona(ABC.a, ABC.b)) * (p - Storona(ABC.b, ABC.c)) * (p - Storona(ABC.c, ABC.a)));
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Triangle MyTriangle;
+        }
+    }
+}
